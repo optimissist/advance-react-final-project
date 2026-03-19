@@ -13,22 +13,27 @@ const socials = [
   {
     icon: faEnvelope,
     url: "mailto: hello@example.com",
+    name: "Email",
   },
   {
     icon: faGithub,
     url: "https://github.com",
+    name: "GitHub",
   },
   {
     icon: faLinkedin,
     url: "https://www.linkedin.com",
+    name: "LinkedIn",
   },
   {
     icon: faMedium,
     url: "https://medium.com",
+    name: "Medium",
   },
   {
     icon: faStackOverflow,
     url: "https://stackoverflow.com",
+    name: "Stacked Overflow",
   },
 ];
 
@@ -64,11 +69,13 @@ const Header = () => {
           alignItems="center"
         >
           <nav>
-            {/* Add social media links based on the `socials` data */}
+            {socials.map(social => (
+              <a key={social.url} href={social.url}><FontAwesomeIcon icon={social.icon} size="2x" /></a>))}
           </nav>
           <nav>
             <HStack spacing={8}>
-              {/* Add links to Projects and Contact me section */}
+              <a href="/#contact-me" onClick={handleClick("contact-me")}>Contact Me </a>
+              <a href="/#projects-section" onClick={handleClick("projects")}>Projects </a>
             </HStack>
           </nav>
         </HStack>
