@@ -51,6 +51,7 @@ useEffect(() => {
       backgroundColor="#512DA8"
       py={16}
       spacing={8}
+      id="contact-me"
     >
       <VStack w="1024px" p={32} alignItems="flex-start">
         <Heading as="h1" id="contactme-section">
@@ -59,7 +60,7 @@ useEffect(() => {
         <Box p={6} rounded="md" w="100%">
           <form onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
-              <Field.Root isInvalid={formik.touched.firstName && formik.errors.firstName}>
+              <Field.Root invalid={formik.touched.firstName && formik.errors.firstName}>
                 <Field.Label htmlFor="firstName">Name</Field.Label>
                 <Input
                   id="firstName"
@@ -68,7 +69,7 @@ useEffect(() => {
                 />
                 <Field.ErrorText>{formik.errors.firstName}</Field.ErrorText>
               </Field.Root>
-              <Field.Root isInvalid={formik.touched.email && formik.errors.email}>
+              <Field.Root invalid={formik.touched.email && formik.errors.email}>
                 <Field.Label htmlFor="email">Email Address</Field.Label>
                 <Input
                   id="email"
@@ -80,15 +81,15 @@ useEffect(() => {
               </Field.Root>
               <Field.Root>
                 <Field.Label htmlFor="type">Type of enquiry</Field.Label>
-                <Select id="type" name="type" {...formik.getFieldProps("type")}>
+                <select id="type" name="type" {...formik.getFieldProps("type")}>
                   <option value="hireMe">Freelance project proposal</option>
                   <option value="openSource">
                     Open source consultancy session
                   </option>
                   <option value="other">Other</option>
-                </Select>
+                </select>
               </Field.Root>
-              <Field.Root isInvalid={formik.touched.comment && formik.errors.comment}>
+              <Field.Root invalid={formik.touched.comment && formik.errors.comment}>
                 <Field.Label htmlFor="comment">Your message</Field.Label>
                 <Textarea
                   id="comment"
