@@ -14,6 +14,7 @@ const LandingSection = () => (
     alignItems="center"
     isDarkBackground
     backgroundColor="#2A4365"
+     id="home"
   >
     <VStack spacing={4}>
       <Avatar.Root size="xl">
